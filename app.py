@@ -16,8 +16,8 @@ from fit import collect_data  # your Google Fit collector
 # -------- Config ----------
 st.set_page_config(page_title="TasteTrack", page_icon="🍲", layout="centered")
 WEATHER_SENSOR_URL = "http://10.37.194.153:5050/latest"
-WEATHER_API_KEY = "86913ffe1b323a7bf0611b6e56ca77f6"
-GROQ_API_KEY = "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"
+WEATHER_API_KEY = "YOUR_API_KEY"
+GROQ_API_KEY = "YOUR_API_KEY"
 groq_client = Groq(api_key=GROQ_API_KEY)
 
 DB_FILE = "tastetrack.db"
