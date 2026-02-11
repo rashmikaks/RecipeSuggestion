@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Location Sender</title>
+<style>
+body {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  background:linear-gradient(135deg, #ffffff 0%, white 100%);
+  font-family: 'Poppins', Arial, sans-serif;
+  margin:0;
+}
+
+.container {
+  padding:50px;
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.2);
+  border-radius:25px;
+  box-shadow:0 8px 30px rgba(0,0,0,0.25);
+  text-align:center;
+}
+
+button {
+  padding:25px 60px;
+  background:grey;
+  color:white;
+  font-size:32px;
+  font-weight:600;
+  border:none;
+  border-radius:20px;
+  cursor:pointer;
+  transition:0.3s ease;
+  box-shadow:0 6px 20px rgba(0,0,0,0.35);
+  letter-spacing:1px;
+}
+
+button:hover {
+  transform:scale(1.1);
+  box-shadow:0 10px 30px rgba(0,0,0,0.4);
+  background:gray;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <button onclick="sendLocation()">📍 Send Location</button>
+</div>
+
+<script>
+function sendLocation() {
+  navigator.geolocation.getCurrentPosition(pos => {
+    fetch("http://10.37.194.153:5050/location", {
+      method:"POST",
+      headers:{ "Content-Type":"application/json" },
+      body:JSON.stringify({lat:pos.coords.latitude, lon:pos.coords.longitude})
+    });
+    alert("Location Sent Successfully!");
+  });
+}
+</script>
+
+</body>
+</html>

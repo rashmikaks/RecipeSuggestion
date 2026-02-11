@@ -1,0 +1,9 @@
+streamlit
+requests
+sqlite3
+textblob
+groq
+pandas
+datetime
+json
+re
